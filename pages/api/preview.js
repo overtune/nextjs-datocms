@@ -1,5 +1,6 @@
 export default (req, res) => {
-  res.setPreviewData({});
-  res.writeHead(307, { Location: '/' });
-  res.end();
-}
+	const slug = req.query.slug || '/';
+	res.setPreviewData({});
+	res.writeHead(307, { Location: slug });
+	res.end();
+};
