@@ -6,8 +6,8 @@ interface Props {
 }
 
 const renderMenuItem = (item: any) => (
-	<li>
-		<Link href={item.slug}>{item.title}</Link>
+	<li key={item.id}>
+		<Link href={`/${item.slug}`}>{item.title}</Link>
 		{item.children.length > 0 && (
 			<ul>{item.children.map(renderMenuItem)}</ul>
 		)}
@@ -18,6 +18,7 @@ const Menu: React.FC<Props> = ({ menu }) => {
 	if (!menu || menu.length === 0) {
 		return null;
 	}
+
 	return (
 		<nav aria-label="Menu" className="prose lg:prose-xl container mx-auto px-4 pt-12">
 			<ul>

@@ -90,7 +90,6 @@ export async function getStartpage(preview?: boolean): Promise<Page[]> {
 		preview
 	);
 
-	console.log(data);
 	return data.startpage;
 }
 
@@ -161,15 +160,19 @@ export async function getMenu(preview?: boolean): Promise<Page[]> {
 		`
 			{
 				allPages(filter: { parent: { exists: false } }) {
+					id
 					title
 					slug
 					children {
+						id
 						title
 						slug
 						children {
+							id
 							title
 							slug
 							children {
+								id
 								title
 								slug
 							}
